@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Avalonia.Routing.App.Views.ProjectListView">
+  <Grid ShowGridLines="True">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="4*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+
+    <TextBlock FontWeight="600" Padding="20" FontSize="20" Grid.Row="0" Grid.Column="0">Improt Project(s) to Azure Sites</TextBlock>
+    <Button Grid.Row="0" Grid.Column="1">Upload</Button>
+    <TextBox Grid.Row="1" Grid.Column="0" Watermark="Enter file name to search"></TextBox>
+    <DropDown Grid.Row="1" Grid.Column="1">
+      <DropDownItem IsSelected="True">Status</DropDownItem>
+    </DropDown>
+    <DataGrid  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Name="MyDataGrid" Items="{Binding Projects}" >
+    </DataGrid>
+  </Grid>
+</UserControl>
