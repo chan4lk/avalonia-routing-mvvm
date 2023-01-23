@@ -17,7 +17,7 @@ namespace Avalonia.Routing.App.ViewModels
         /// <summary>
         /// The projects.
         /// </summary>
-        public IList<Project> Projects { get; set; } = new List<Project>() { new Project() { Id = 1, Name = "Test 1", Description = "Test Project 1" } };
+        public Project[] Projects { get; set; } = new Project[] { new Project() { Id = 1, Name = "Test 1", Description = "Test Project 1" } };
 
         /// <summary>
         /// The content of this page

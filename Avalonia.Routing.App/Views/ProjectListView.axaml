@@ -10,11 +10,11 @@
   <Design.DataContext>
     <vm:ProjectListViewModel />
   </Design.DataContext>
-  <Grid ShowGridLines="True">
+  <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="4*"></ColumnDefinition>
@@ -27,7 +27,7 @@
     <DropDown Grid.Row="1" Grid.Column="1">
       <DropDownItem IsSelected="True">Status</DropDownItem>
     </DropDown>
-    <DataGrid  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Name="MyDataGrid" Items="{Binding Projects}" >
+    <DataGrid  Grid.Row="2" Grid.Column="0" Name="MyDataGrid" Items="{Binding Projects}" >
     </DataGrid>
   </Grid>
 </UserControl>
