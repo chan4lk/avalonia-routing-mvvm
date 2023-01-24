@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using Splat;
+using System.Windows.Input;
 
 namespace Avalonia.Routing.App.ViewModels
 {
@@ -7,6 +8,11 @@ namespace Avalonia.Routing.App.ViewModels
 
         public MainWindowViewModel()
         {
+            Pages = new PageViewModelBase[]
+            {
+                Locator.Current.GetService<ProjectListViewModel>()!,
+                Locator.Current.GetService<WizardViewModel>()!,
+            };
             // Set current page to first on start up
             _CurrentPage = Pages[0];
 
@@ -19,11 +25,7 @@ namespace Avalonia.Routing.App.ViewModels
         }
 
         // A read.only array of possible pages
-        private readonly PageViewModelBase[] Pages =
-        {
-        new ProjectListViewModel(),
-        new WizardViewModel(),
-    };
+        private PageViewModelBase[] Pages;
 
         // The default is the first page
         private PageViewModelBase _CurrentPage;

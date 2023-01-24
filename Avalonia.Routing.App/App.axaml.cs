@@ -3,6 +3,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using Avalonia.Routing.App.Services;
 using Avalonia.Routing.App.ViewModels;
 using Avalonia.Routing.App.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,10 +33,12 @@ namespace Avalonia.Routing.App
                   var resolver = Locator.CurrentMutable;
                   resolver.InitializeSplat();
 
-                  services.AddTransient<MainWindow>();
-                  services.AddTransient<MainWindowViewModel>();
+                  ConfigureServices(services);
               })
               .Build();
+
+            Container = host.Services;
+            Container.UseMicrosoftDependencyResolver();
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
@@ -47,6 +50,15 @@ namespace Avalonia.Routing.App
             }
 
             base.OnFrameworkInitializationCompleted();
+        }
+
+        private void ConfigureServices(IServiceCollection services)
+        {
+            services.AddTransient<MainWindow>();
+            services.AddTransient<MainWindowViewModel>();
+            services.AddTransient<ProjectListViewModel>();
+            services.AddTransient<WizardViewModel>();
+            services.AddTransient<IProjectService, ProjectService>();
         }
     }
 }

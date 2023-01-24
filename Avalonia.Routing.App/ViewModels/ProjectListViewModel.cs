@@ -1,6 +1,6 @@
 ﻿using Avalonia.Routing.App.Models;
+using Avalonia.Routing.App.Services;
 using System;
-using System.Collections.Generic;
 
 namespace Avalonia.Routing.App.ViewModels
 {
@@ -9,6 +9,8 @@ namespace Avalonia.Routing.App.ViewModels
     /// </summary>
     public class ProjectListViewModel : PageViewModelBase
     {
+        private readonly IProjectService projectService;
+
         /// <summary>
         /// The Title of this page
         /// </summary>
@@ -17,7 +19,7 @@ namespace Avalonia.Routing.App.ViewModels
         /// <summary>
         /// The projects.
         /// </summary>
-        public Project[] Projects { get; set; } = new Project[] { new Project() { Id = 1, Name = "Test 1", Description = "Test Project 1" } };
+        public Project[] Projects { get; set; }
 
         /// <summary>
         /// The content of this page
@@ -36,6 +38,12 @@ namespace Avalonia.Routing.App.ViewModels
         {
             get => false;
             protected set => throw new NotSupportedException();
+        }
+
+        public ProjectListViewModel(IProjectService projectService)
+        {
+            this.projectService = projectService;
+            this.Projects = projectService.GetProjects();
         }
     }
 }
