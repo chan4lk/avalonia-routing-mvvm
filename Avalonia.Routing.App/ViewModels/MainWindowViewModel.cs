@@ -1,70 +1,57 @@
-﻿using Splat;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Splat;
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace Avalonia.Routing.App.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public partial class MainWindowViewModel : ViewModelBase
     {
 
         public MainWindowViewModel()
         {
-            Pages = new PageViewModelBase[]
+            Pages = new List<PageViewModelBase>
             {
                 Locator.Current.GetService<ProjectListViewModel>()!,
                 Locator.Current.GetService<WizardViewModel>()!,
             };
             // Set current page to first on start up
-            _CurrentPage = Pages[0];
-
-            //// Create Observables which will activate to deactivate our commands based on CurrentPage state
-            //var canNavNext = this.WhenAnyValue(x => x.CurrentPage.CanNavigateNext);
-            //var canNavPrev = this.WhenAnyValue(x => x.CurrentPage.CanNavigatePrevious);
-
-            //NavigateNextCommand = ReactiveCommand.Create(NavigateNext, canNavNext);
-            //NavigatePreviousCommand = ReactiveCommand.Create(NavigatePrevious, canNavPrev);
+            currentPage = Pages[0];
         }
 
         // A read.only array of possible pages
-        private PageViewModelBase[] Pages;
-
-        // The default is the first page
-        private PageViewModelBase _CurrentPage;
+        private List<PageViewModelBase> Pages;
 
         /// <summary>
         /// Gets the current page. The property is read-only
         /// </summary>
-        public PageViewModelBase CurrentPage
+        [ObservableProperty]
+        public PageViewModelBase currentPage;
+
+
+        [RelayCommand]
+        public void NavigateNext()
         {
-            get { return _CurrentPage; }
-            private set { _CurrentPage = value; }
+            // get the current index and add 1
+            var index = Pages.IndexOf(currentPage) + 1;
+
+            if (index < Pages.Count)
+            {
+                currentPage = Pages[index];
+            }
         }
 
-        /// <summary>
-        /// Gets a command that navigates to the next page
-        /// </summary>
-        public ICommand NavigateNextCommand { get; }
+        [RelayCommand]
+        public void NavigatePrevious()
+        {
+            // get the current index and subtract 1
+            var index = Pages.IndexOf(currentPage) - 1;
 
-        //private void NavigateNext()
-        //{
-        //    // get the current index and add 1
-        //    var index = Pages.IndexOf(CurrentPage) + 1;
-
-        //    //  /!\ Be aware that we have no check if the index is valid. You may want to add it on your own. /!\
-        //    CurrentPage = Pages[index];
-        //}
-
-        ///// <summary>
-        ///// Gets a command that navigates to the previous page
-        ///// </summary>
-        //public ICommand NavigatePreviousCommand { get; }
-
-        //private void NavigatePrevious()
-        //{
-        //    // get the current index and subtract 1
-        //    var index = Pages.IndexOf(CurrentPage) - 1;
-
-        //    //  /!\ Be aware that we have no check if the index is valid. You may want to add it on your own. /!\
-        //    CurrentPage = Pages[index];
-        //}
+            if (index > -1)
+            {
+                currentPage = Pages[index];
+            }
+        }
     }
 }

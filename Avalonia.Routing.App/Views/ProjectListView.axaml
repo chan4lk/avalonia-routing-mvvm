@@ -22,7 +22,7 @@
     </Grid.ColumnDefinitions>
 
     <TextBlock FontWeight="600" Padding="20" FontSize="20" Grid.Row="0" Grid.Column="0" Text="{Binding Title}"></TextBlock>
-    <Button Grid.Row="0" Grid.Column="1">Upload</Button>
+    <Button Grid.Row="0" Grid.Column="1" Command="{Binding UploadCommand}">Upload</Button>
     <TextBox Grid.Row="1" Grid.Column="0" Watermark="Enter file name to search"></TextBox>
     <DropDown Grid.Row="1" Grid.Column="1">
       <DropDownItem IsSelected="True">Status</DropDownItem>

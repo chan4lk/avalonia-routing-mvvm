@@ -1,7 +1,10 @@
 ﻿using Avalonia.Collections;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Routing.App.Models;
 using Avalonia.Routing.App.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 
 namespace Avalonia.Routing.App.ViewModels
@@ -11,7 +14,7 @@ namespace Avalonia.Routing.App.ViewModels
     /// </summary>
     public partial class ProjectListViewModel : PageViewModelBase
     {
-        private readonly IProjectService projectService;
+        private MainWindowViewModel? mainWindowVm;
 
         /// <summary>
         /// The Title of this page
@@ -23,6 +26,8 @@ namespace Avalonia.Routing.App.ViewModels
         /// </summary>
         [ObservableProperty]
         public DataGridCollectionView projects;
+
+        private readonly IProjectService projectService;
 
         /// <summary>
         /// The content of this page
@@ -45,8 +50,20 @@ namespace Avalonia.Routing.App.ViewModels
 
         public ProjectListViewModel(IProjectService projectService)
         {
-            this.projectService = projectService;
             this.projects = new DataGridCollectionView(projectService.GetProjects());
+            if ((Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow is { } mainWindow)
+            {
+                mainWindowVm = (MainWindowViewModel)mainWindow.DataContext!;
+            }
+
+            this.projectService = projectService;
+        }
+
+        [RelayCommand]
+        void Upload()
+        {  
+            this.projects = new DataGridCollectionView(projectService?.GetUpdatedProjects());
+            //mainWindowVm?.NavigateNext();
         }
     }
 }
