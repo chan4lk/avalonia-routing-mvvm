@@ -17,7 +17,7 @@ namespace Avalonia.Routing.App.ViewModels
                 Locator.Current.GetService<WizardViewModel>()!,
             };
             // Set current page to first on start up
-            currentPage = Pages[0];
+            CurrentPage = Pages[0];
         }
 
         // A read.only array of possible pages
@@ -52,6 +52,12 @@ namespace Avalonia.Routing.App.ViewModels
             {
                 CurrentPage = Pages[index];
             }
+        }
+
+        public int GetCurrentPageIndex()
+        {
+            var index = Pages.IndexOf(currentPage);
+            return index;
         }
     }
 }

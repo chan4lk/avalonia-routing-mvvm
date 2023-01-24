@@ -1,14 +1,8 @@
 ﻿using Avalonia.Collections;
-using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Routing.App.Models;
 using Avalonia.Routing.App.Services;
-using Avalonia.Routing.App.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Splat;
 using System;
-using System.Threading.Tasks;
 
 namespace Avalonia.Routing.App.ViewModels
 {
@@ -31,8 +25,6 @@ namespace Avalonia.Routing.App.ViewModels
         [ObservableProperty]
         public DataGridCollectionView projects;
 
-        private readonly IProjectService projectService;
-
         // This is our first page, so we can navigate to the next page in any case
         public override bool CanNavigateNext
         {
@@ -49,17 +41,13 @@ namespace Avalonia.Routing.App.ViewModels
 
         public ProjectListViewModel(IProjectService projectService)
         {
-            this.projectService = projectService;
             this.Projects = new DataGridCollectionView(projectService.GetProjects());
         }
 
         [RelayCommand]
         void Upload()
         {
-            if ((Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow is { } mainWindow)
-            {
-                _mainWindowVm = (MainWindowViewModel)mainWindow.DataContext!;
-            }
+            _mainWindowVm = Application.Current.GetMainWindowViewModel();
             _mainWindowVm?.NavigateNext();
         }
     }
