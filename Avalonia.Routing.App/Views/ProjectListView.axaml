@@ -14,7 +14,7 @@
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="4*"></ColumnDefinition>
@@ -27,7 +27,12 @@
     <DropDown Grid.Row="1" Grid.Column="1">
       <DropDownItem IsSelected="True">Status</DropDownItem>
     </DropDown>
-    <DataGrid  Grid.Row="2" Grid.Column="0" Name="MyDataGrid" Items="{Binding Projects}" >
-    </DataGrid>
+    <DataGrid
+      IsReadOnly="True"
+      Grid.Row="2" 
+      Grid.Column="0" 
+      Name="MyDataGrid" 
+      AutoGenerateColumns="True" 
+      Items="{Binding Projects}"></DataGrid>
   </Grid>
 </UserControl>

@@ -1,5 +1,7 @@
-﻿using Avalonia.Routing.App.Models;
+﻿using Avalonia.Collections;
+using Avalonia.Routing.App.Models;
 using Avalonia.Routing.App.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 
 namespace Avalonia.Routing.App.ViewModels
@@ -7,7 +9,7 @@ namespace Avalonia.Routing.App.ViewModels
     /// <summary>
     ///  This is our ViewModel for the first page
     /// </summary>
-    public class ProjectListViewModel : PageViewModelBase
+    public partial class ProjectListViewModel : PageViewModelBase
     {
         private readonly IProjectService projectService;
 
@@ -19,7 +21,8 @@ namespace Avalonia.Routing.App.ViewModels
         /// <summary>
         /// The projects.
         /// </summary>
-        public Project[] Projects { get; set; }
+        [ObservableProperty]
+        public DataGridCollectionView projects;
 
         /// <summary>
         /// The content of this page
@@ -43,7 +46,7 @@ namespace Avalonia.Routing.App.ViewModels
         public ProjectListViewModel(IProjectService projectService)
         {
             this.projectService = projectService;
-            this.Projects = projectService.GetProjects();
+            this.projects = new DataGridCollectionView(projectService.GetProjects());
         }
     }
 }
