@@ -28,10 +28,7 @@
 			<TabItem.Header>
 				<TextBlock VerticalAlignment="Center">Advanced</TextBlock>
 			</TabItem.Header>
-			<StackPanel Orientation="Horizontal">
-				<TextBlock Text="Advanced : " HorizontalAlignment="Left" VerticalAlignment="Center"/>
-				<Rectangle Fill="Blue" Width="63" Height="41"/>
-			</StackPanel>
+			<ContentControl Content="{Binding AdvancedTabViewModel}"></ContentControl>
 		</TabItem>
 		<TabItem Header="Summary" VerticalContentAlignment="Center">
 			<TextBlock Text="I am in the Summary page !" HorizontalAlignment="Left" VerticalAlignment="Center"/>

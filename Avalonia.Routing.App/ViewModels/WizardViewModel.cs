@@ -1,27 +1,23 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Splat;
+using System;
 
 namespace Avalonia.Routing.App.ViewModels
 {
     /// <summary>
     ///  This is our ViewModel for the third page
     /// </summary>
-    public class WizardViewModel : PageViewModelBase
+    public partial class WizardViewModel : PageViewModelBase
     {
         // The message to display
         public string Message => "Done";
 
-        // This is the last page, so we cannot navigate next in our sample.
-        public override bool CanNavigateNext
-        {
-            get => false;
-            protected set => throw new NotSupportedException();
-        }
+        [ObservableProperty]
+        public AdvancedTabViewModel advancedTabViewModel;
 
-        // We navigate back form this page in any case
-        public override bool CanNavigatePrevious
+        public WizardViewModel()
         {
-            get => true;
-            protected set => throw new NotSupportedException();
+            AdvancedTabViewModel = Locator.Current.GetService<AdvancedTabViewModel>();
         }
     }
 }

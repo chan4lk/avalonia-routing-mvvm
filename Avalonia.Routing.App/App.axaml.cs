@@ -62,6 +62,7 @@ namespace Avalonia.Routing.App
 
             services.AddTransient<ProjectListViewModel>();
             services.AddTransient<WizardViewModel>();
+            services.AddTransient<AdvancedTabViewModel>();
 
             services.AddTransient<IProjectService, ProjectService>();
         }
