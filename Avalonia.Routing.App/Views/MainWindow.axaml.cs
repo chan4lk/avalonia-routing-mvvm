@@ -1,4 +1,6 @@
 using Avalonia.Controls;
+using Avalonia.Routing.App.ViewModels;
+using Splat;
 
 namespace Avalonia.Routing.App.Views
 {
@@ -6,6 +8,7 @@ namespace Avalonia.Routing.App.Views
     {
         public MainWindow()
         {
+            DataContext = Locator.Current.GetService<MainWindowViewModel>();
             InitializeComponent();
         }
     }
