@@ -38,7 +38,7 @@ namespace Avalonia.Routing.App.ViewModels
 
             if (index < Pages.Count)
             {
-                currentPage = Pages[index];
+                CurrentPage = Pages[index];
             }
         }
 
@@ -50,7 +50,7 @@ namespace Avalonia.Routing.App.ViewModels
 
             if (index > -1)
             {
-                currentPage = Pages[index];
+                CurrentPage = Pages[index];
             }
         }
     }

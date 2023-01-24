@@ -28,4 +28,8 @@
     <PackageReference Include="Splat.Microsoft.Extensions.DependencyInjection" Version="14.6.1" />
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
 </Project>

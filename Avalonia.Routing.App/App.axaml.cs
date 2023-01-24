@@ -55,9 +55,14 @@ namespace Avalonia.Routing.App
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<MainWindow>();
-            services.AddSingleton<MainWindowViewModel>();
+            services.AddTransient<MainWindowViewModel>();
+
+            services.AddTransient<MessageWindow>();
+            services.AddTransient<MessageWindowViewModel>();
+
             services.AddTransient<ProjectListViewModel>();
             services.AddTransient<WizardViewModel>();
+
             services.AddTransient<IProjectService, ProjectService>();
         }
     }
