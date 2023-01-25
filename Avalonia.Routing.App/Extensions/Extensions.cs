@@ -7,7 +7,7 @@ namespace Avalonia.Routing.App
     {
         public static MainWindowViewModel GetMainWindowViewModel(this Application application)
         {
-            if ((Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow is { } mainWindow)
+            if ((application.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow is { } mainWindow)
             {
                 var _mainWindowVm = (MainWindowViewModel)mainWindow.DataContext!;
                 return _mainWindowVm;
