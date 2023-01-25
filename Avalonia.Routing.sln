@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Routing.App", "Avalonia.Routing.App\Avalonia.Routing.App.csproj", "{7C2096D3-E900-45F4-8EA3-3852002A77B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Routing.App", "Avalonia.Routing.App\Avalonia.Routing.App.csproj", "{7C2096D3-E900-45F4-8EA3-3852002A77B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Routing.App.UITests", "Avalonia.Routing.App.UITests\Avalonia.Routing.App.UITests.csproj", "{8FEBA211-5661-40CF-98C8-9EF0B96E3A7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7C2096D3-E900-45F4-8EA3-3852002A77B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C2096D3-E900-45F4-8EA3-3852002A77B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C2096D3-E900-45F4-8EA3-3852002A77B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FEBA211-5661-40CF-98C8-9EF0B96E3A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FEBA211-5661-40CF-98C8-9EF0B96E3A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FEBA211-5661-40CF-98C8-9EF0B96E3A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FEBA211-5661-40CF-98C8-9EF0B96E3A7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
