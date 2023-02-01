@@ -1,8 +1,12 @@
-﻿using Avalonia;
-using System;
+﻿// <copyright file="Program.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Avalonia.Routing.App
 {
+    using System;
+    using Avalonia;
+
     internal class Program
     {
         // Initialization code. Don't use any Avalonia, third-party APIs or any

@@ -1,13 +1,18 @@
+// <copyright file="ProjectListView.axaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Avalonia.Routing.App.Views;
+
 using Avalonia.Controls;
 
-namespace Avalonia.Routing.App.Views
+/// <summary>
+/// The project list view.
+/// </summary>
+public partial class ProjectListView : UserControl
 {
-    public partial class ProjectListView : UserControl
+    public ProjectListView()
     {
-
-        public ProjectListView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

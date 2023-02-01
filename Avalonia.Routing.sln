@@ -5,7 +5,13 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Routing.App", "Avalonia.Routing.App\Avalonia.Routing.App.csproj", "{7C2096D3-E900-45F4-8EA3-3852002A77B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Routing.App.UITests", "Avalonia.Routing.App.UITests\Avalonia.Routing.App.UITests.csproj", "{8FEBA211-5661-40CF-98C8-9EF0B96E3A7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Routing.App.UITests", "Avalonia.Routing.App.UITests\Avalonia.Routing.App.UITests.csproj", "{8FEBA211-5661-40CF-98C8-9EF0B96E3A7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8B27EBBB-3E1E-4DE5-B831-8AF319128768}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		stylecop.json = stylecop.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

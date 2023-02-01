@@ -1,10 +1,14 @@
-using Avalonia.Controls;
-using Avalonia.Controls.Templates;
-using Avalonia.Routing.App.ViewModels;
-using System;
+// <copyright file="ViewLocator.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Avalonia.Routing.App
 {
+    using System;
+    using Avalonia.Controls;
+    using Avalonia.Controls.Templates;
+    using Avalonia.Routing.App.ViewModels;
+
     public class ViewLocator : IDataTemplate
     {
         public IControl Build(object data)
@@ -14,7 +18,7 @@ namespace Avalonia.Routing.App
 
             if (type != null)
             {
-                return (Control)Activator.CreateInstance(type)!;
+                return (Control)Activator.CreateInstance(type) !;
             }
 
             return new TextBlock { Text = "Not Found: " + name };

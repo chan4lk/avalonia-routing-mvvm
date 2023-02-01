@@ -1,23 +1,26 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Splat;
+﻿// <copyright file="WizardViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Avalonia.Routing.App.ViewModels;
+
 using System;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Splat;
 
-namespace Avalonia.Routing.App.ViewModels
+/// <summary>
+///  This is our ViewModel for the third page.
+/// </summary>
+public partial class WizardViewModel : PageViewModelBase
 {
-    /// <summary>
-    ///  This is our ViewModel for the third page
-    /// </summary>
-    public partial class WizardViewModel : PageViewModelBase
+    [ObservableProperty]
+    private AdvancedTabViewModel? advancedTabViewModel;
+
+    public WizardViewModel()
     {
-        // The message to display
-        public string Message => "Done";
-
-        [ObservableProperty]
-        public AdvancedTabViewModel advancedTabViewModel;
-
-        public WizardViewModel()
-        {
-            AdvancedTabViewModel = Locator.Current.GetService<AdvancedTabViewModel>();
-        }
+        AdvancedTabViewModel = Locator.Current.GetService<AdvancedTabViewModel>();
     }
+
+    // The message to display
+    public string Message => "Done";
 }

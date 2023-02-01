@@ -1,10 +1,16 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿// <copyright file="MessageWindowViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace Avalonia.Routing.App.ViewModels
+namespace Avalonia.Routing.App.ViewModels;
+
+using CommunityToolkit.Mvvm.ComponentModel;
+
+/// <summary>
+/// The main view model.
+/// </summary>
+public partial class MessageWindowViewModel : ViewModelBase
 {
-    public partial class MessageWindowViewModel : ViewModelBase
-    {
-        [ObservableProperty]
-        public string title = "Hi Dialog";
-    }
+    [ObservableProperty]
+    private string title = "Hi Dialog";
 }
