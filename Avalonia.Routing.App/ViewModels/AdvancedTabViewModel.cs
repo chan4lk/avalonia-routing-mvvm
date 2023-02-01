@@ -1,10 +1,16 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿// <copyright file="AdvancedTabViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace Avalonia.Routing.App.ViewModels
+namespace Avalonia.Routing.App.ViewModels;
+
+using CommunityToolkit.Mvvm.ComponentModel;
+
+/// <summary>
+/// The advanced tab view model.
+/// </summary>
+public partial class AdvancedTabViewModel : ViewModelBase
 {
-    public partial class AdvancedTabViewModel : ViewModelBase
-    {
-        [ObservableProperty]
-        public string title = "This is a nested user control";
-    }
+    [ObservableProperty]
+    private string title = "This is a nested user control";
 }

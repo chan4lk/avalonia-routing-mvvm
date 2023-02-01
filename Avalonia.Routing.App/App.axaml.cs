@@ -1,23 +1,31 @@
-using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
-using Avalonia.Data.Core.Plugins;
-using Avalonia.Markup.Xaml;
-using Avalonia.Routing.App.Services;
-using Avalonia.Routing.App.ViewModels;
-using Avalonia.Routing.App.Views;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Splat;
-using Splat.Microsoft.Extensions.DependencyInjection;
-using System;
+// <copyright file="App.axaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Avalonia.Routing.App
 {
+    using System;
+    using Avalonia;
+    using Avalonia.Controls.ApplicationLifetimes;
+    using Avalonia.Data.Core;
+    using Avalonia.Data.Core.Plugins;
+    using Avalonia.Markup.Xaml;
+    using Avalonia.Routing.App.Services;
+    using Avalonia.Routing.App.ViewModels;
+    using Avalonia.Routing.App.Views;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Splat;
+    using Splat.Microsoft.Extensions.DependencyInjection;
+
+    /// <summary>
+    /// The Main App.
+    /// </summary>
     public partial class App : Application
     {
-        public IServiceProvider Container { get; private set; }
-        public IHost host { get; set; }
+        public IServiceProvider? Container { get; private set; }
+
+        public IHost? Host { get; set; }
 
         public override void Initialize()
         {
@@ -26,7 +34,7 @@ namespace Avalonia.Routing.App
 
         public override void OnFrameworkInitializationCompleted()
         {
-            host = Host.CreateDefaultBuilder()
+            Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
               .ConfigureServices((_, services) =>
               {
                   services.UseMicrosoftDependencyResolver();
@@ -37,7 +45,7 @@ namespace Avalonia.Routing.App
               })
               .Build();
 
-            Container = host.Services;
+            Container = Host.Services;
             Container.UseMicrosoftDependencyResolver();
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
